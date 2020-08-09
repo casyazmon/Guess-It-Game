@@ -3,7 +3,10 @@ package com.example.android.guesstheword.screens.score
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 
 class ScoreViewModel(finalScore: Int): ViewModel() {
 
@@ -21,6 +24,16 @@ class ScoreViewModel(finalScore: Int): ViewModel() {
     init {
         Log.i("ScoreViewModel", "Final Score is $finalScore: ")
         _score.value = finalScore
+
+    }
+
+
+
+    fun onPlayAgainComplete() {
         _eventPlayAgain.value = false
+    }
+
+    fun onPlayAgain() {
+        _eventPlayAgain.value = true
     }
 }
